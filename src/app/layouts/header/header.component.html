@@ -1,0 +1,17 @@
+<nav
+  class="fixed top-0 left-0 w-full z-50 transition-colors duration-300"
+  [ngClass]="{'bg-white shadow-md': isScrolled, 'bg-transparent': !isScrolled}">
+
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center">
+      <img src="assets/kaluta.png" alt="Kaluta logo" class="h-12 w-auto">
+    </a>
+
+    <!-- Texto -->
+    <span class="text-gray-800 font-medium">
+      Welcome to home!
+    </span>
+  </div>
+</nav>
