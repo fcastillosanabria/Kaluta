@@ -1,400 +1,72 @@
-<app-header></app-header>
-<div class="relative w-full overflow-hidden">
-  <!-- Slides -->
-  <div class="flex transition-transform duration-700" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
-    <div class="min-w-full relative">
-      <img src="https://fullday.pe/wp-content/uploads/2024/07/Tupe-Yauyos.jpg" alt="Paisaje 1" class="w-full h-auto object-cover">
-      <div class="absolute bottom-8 left-8 text-white bg-black bg-opacity-50 p-4 rounded">
-        <h5 class="text-xl font-bold">Explora la Sierra</h5>
-        <p>Viajes únicos con Kaluta Tours</p>
-      </div>
-    </div>
-    <div class="min-w-full relative">
-      <img src="https://fullday.pe/wp-content/uploads/2024/07/Tupe-peru.jpg" alt="Paisaje 2" class="w-full h-auto object-cover">
-      <div class="absolute bottom-8 left-8 text-white bg-black bg-opacity-50 p-4 rounded">
-        <h5 class="text-xl font-bold">Aventura y Cultura</h5>
-        <p>Una experiencia inolvidable</p>
-      </div>
-    </div>
-    <div class="min-w-full relative">
-      <img src="https://deaventura.pe/app/public_root/imgs/destinosyrutas/Camino-a-Tupe.jpg" alt="Paisaje 3" class="w-full h-auto object-cover">
-      <div class="absolute bottom-8 left-8 text-white bg-black bg-opacity-50 p-4 rounded">
-        <h5 class="text-xl font-bold">Descubre la Naturaleza</h5>
-        <p>Confort, gastronomía y paisajes</p>
-      </div>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-lg bg-white border-bottom py-3 px-4 d-flex justify-content-between sticky-top">
+  <div class="fs-3">☰</div>
+  <span class="fs-2 fw-semibold">QALUTA</span>
+  <button class="btn btn-dark text-uppercase px-4">Reservar</button>
+</nav>
 
-  <!-- Botones -->
-  <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded" (click)="prevSlide()">
-    ◀
-  </button>
-  <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded" (click)="nextSlide()">
-    ▶
-  </button>
+<!-- Hero con altura ajustada -->
+<section class="position-relative text-center text-white">
+  <img src="https://fullday.pe/wp-content/uploads/2024/07/Tupe-Yauyos.jpg" class="w-100"
+    style="height: calc(100vh - 140px); object-fit: cover;" />
+
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
+
+  <div class="position-absolute top-50 start-50 translate-middle w-75">
+    <h1 class="fw-normal display-5 mb-4">Los lugares adecuados, los momentos adecuados.</h1>
+    <button class="btn btn-outline-light text-uppercase px-4 py-2 border-2">
+      Descubra nuestros hoteles
+    </button>
+  </div>
+</section>
+
+<!-- Secondary Sticky Menu -->
+<div class="bg-white border-bottom sticky-top" style="top: 80px;">
+  <div class="container d-flex justify-content-center gap-5 py-3 fw-semibold text-uppercase" style="font-size: 0.9rem;">
+    <span>Nuestros Hoteles</span>
+    <span>Identidad</span>
+    <span>Gastronomía</span>
+    <span>Bienestar</span>
+    <span>Cheques-Regalos</span>
+    <span>Ofertas Navideñas</span>
+  </div>
 </div>
 
 
 
 
+<section class="position-relative text-center text-white">
+  <img src="assets/img/fondo.jpg" class="w-100" style="height:100vh; object-fit:cover;" />
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
 
 
-<!-- Presentacion -->
-<section class="flex items-center justify-center h-[90vh] lg:min-h-screen" style=" background-color: #E6E6E6;">
-  <div class="">
-    <div class="content_container row margin-top-5">
-      <div class="col-lg-12 col-md-12 col-xs-12 align-center inicio2">
-        <div style="z-index: 50;" class="text-center">
-          <div class=" text-5xl pb-2">¡La transformación está a su alcance con RenoAs!</div>
-
-          <h1 class="" style="margin: 0;">Software académico, administrativo y de educación virtual para
-            instituciones de educación en Sudamerica.</h1>
-
-          <div class=" p-6">
-            <a href="#" class="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">PRUEBA GRATUITA</a>
-          </div>
-
-        </div>
-        <img style="z-index: 1;" id="imgCabecera" src="https://www.q10.com/Images/Plataforma_academica.webp"
-          class="img-inicio" alt="Gestión académica (o academica) y software académico (o academico)">
-      </div>
-    </div>
+  <div class="position-absolute top-50 start-50 translate-middle w-75">
+    <h1 class="fw-normal display-5 mb-4">Los lugares adecuados, los momentos adecuados.</h1>
+    <button class="btn btn-outline-light text-uppercase px-4 py-2 border-2">
+      Descubra nuestros hoteles
+    </button>
   </div>
 </section>
-<!-- Fin de Presentacion -->
+<section class="position-relative text-center text-white">
+  <img src="assets/img/fondo.jpg" class="w-100" style="height:100vh; object-fit:cover;" />
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
 
 
-<!-- Que somos -->
-<section
-  class="flex flex-col lg:flex-row p-4 lg:pr-52 lg:pl-52 items-center justify-center min-h-screen image-container space-y-6 lg:space-y-0">
-  <!-- Imagen -->
-  <div class="basis-full lg:basis-3/6 px-4 flex items-center justify-center">
-    <img src="https://www.q10.com/images/Sistema_de_gestion_academica_solo_1.webp"
-      alt="Plataforma académica o software académico para la integración de procesos académicos, administrativos, comerciales y educación virtual"
-      class="w-full h-auto div-slide">
-  </div>
-
-  <!-- Descripción -->
-  <div class="basis-full lg:basis-3/5 px-4 div-slide text-center lg:text-left">
-    <h2 class="font-semibold text-2xl lg:text-4xl text-orange-500">¿Qué es RenoAs?</h2>
-    <p class="text-base lg:text-lg leading-6 my-4">RenoAs es un software en la nube que apoya la asistencia para las
-      instituciones educativas.</p>
-    <p class="text-base lg:text-lg leading-6 my-4">Como solución integral orientada al servicio genera un impacto
-      positivo en el
-      crecimiento y rentabilidad de su organización.</p>
+  <div class="position-absolute top-50 start-50 translate-middle w-75">
+    <h1 class="fw-normal display-5 mb-4">Los lugares adecuados, los momentos adecuados.</h1>
+    <button class="btn btn-outline-light text-uppercase px-4 py-2 border-2">
+      Descubra nuestros hoteles
+    </button>
   </div>
 </section>
-<!-- Fin de Que somos -->
+<section class="position-relative text-center text-white">
+  <img src="assets/img/fondo.jpg" class="w-100" style="height:100vh; object-fit:cover;" />
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
 
 
-<!-- Funciones -->
-<section class="pb-40" style="z-index: 1; background-color: #E6E6E6;">
-  <div class="flex flex-col items-center justify-center py-20 px-6 lg:px-40">
-    <div class="text-center">
-      <h3 class="text-3xl font-semibold mb-4">
-        Plataforma integral, la clave del progreso en su institución educativa.
-      </h3>
-      <div class="flex items-center justify-center">
-        <span class="text-lg leading-6">
-          RenoAs es la clave para impulsar el progreso en su institución educativa. Al combinar módulos de
-          administración,
-          CRM y educación virtual en un solo sistema, simplificamos y optimizamos sus procesos. Esto les permite
-          centrarse en lo más importante: brindar una educación de calidad a sus estudiantes.
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 px-6 lg:px-44">
-    <!-- Gestión Comercial -->
-    <div class="funciones-container-left">
-      <div
-        class="div-slide group flex flex-col items-center text-center p-4 bg-white shadow-lg rounded-lg hover:bg-green-100 duration-700">
-        <div
-          class="w-full h-48 flex justify-center items-center bg-gray-100 rounded-lg group-hover:bg-white transition-colors duration-700">
-          <img loading="lazy" src="https://www.q10.com/Images/ModulosEstrategicos/gestion_comercial.webp" class="h-full"
-            alt="Gestión Comercial">
-        </div>
-        <h3 class="text-lg font-bold text-green-700 mt-4 group-hover:text-green-800 transition-colors duration-300">
-          Gestión Comercial
-        </h3>
-        <p class="text-gray-600 mt-2 group-hover:text-gray-800 transition-colors duration-300">
-          Potencialice su gestión comercial y obtenga información para optimizar el seguimiento de prospectos,
-          aumentando la efectividad en el proceso de ventas.
-        </p>
-      </div>
-    </div>
-
-
-
-    <!-- Gestión Académica -->
-    <div class="funciones-container-left overflow-x-hidden md:overflow-visible">
-      <div
-        class="div-slide group flex flex-col items-center text-center p-4 bg-white shadow-lg rounded-lg hover:bg-orange-100 duration-700">
-        <div
-          class="w-full h-48 flex justify-center items-center bg-gray-100 rounded-lg group-hover:bg-white transition-colors duration-700">
-          <img loading="lazy" src="https://www.q10.com/Images/ModulosEstrategicos/gestion_academica.webp" class="h-full"
-            alt="Gestión Académica">
-        </div>
-        <h3 class="text-lg font-bold text-orange-600 mt-4 group-hover:text-orange-700 transition-colors duration-300">
-          Gestión Académica
-        </h3>
-        <p class="text-gray-600 mt-2 group-hover:text-gray-800 transition-colors duration-300">
-          Administre la información académica de sus estudiantes de principio a fin para mejorar procesos como:
-          matrículas, programación de horarios, registro de notas y evaluación docente.
-        </p>
-      </div>
-    </div>
-
-    <!-- Educación Virtual -->
-    <div class="funciones-container-right overflow-x-hidden md:overflow-visible">
-      <div
-        class="div-slide group flex flex-col items-center text-center p-4 bg-white shadow-lg rounded-lg hover:bg-purple-100 duration-700">
-        <div
-          class="w-full h-48 flex justify-center items-center bg-gray-100 rounded-lg group-hover:bg-white transition-colors duration-700">
-          <img loading="lazy" src="https://www.q10.com/Images/ModulosEstrategicos/educacion_virtual.webp" class="h-full"
-            alt="Educación Virtual">
-        </div>
-        <h3 class="text-lg font-bold text-purple-700 mt-4 group-hover:text-purple-800 transition-colors duration-300">
-          Educación Virtual
-        </h3>
-        <p class="text-gray-600 mt-2 group-hover:text-gray-800 transition-colors duration-300">
-          Facilite la comunicación entre sus docentes y estudiantes mediante la utilización de contenidos dinámicos,
-          publicación de anuncios, cuestionarios, foros, tareas e interacción en tiempo real.
-        </p>
-      </div>
-    </div>
-
-    <!-- Bienestar Institucional -->
-    <div class="funciones-container-right overflow-x-hidden md:overflow-visible">
-      <div
-        class="div-slide group flex flex-col items-center text-center p-4 bg-white shadow-lg rounded-lg hover:bg-blue-100 duration-700">
-        <div
-          class="w-full h-48 flex justify-center items-center bg-gray-100 rounded-lg group-hover:bg-white transition-colors duration-700">
-          <img loading="lazy" src="https://www.q10.com/Images/ModulosEstrategicos/bienestar_institucional.webp"
-            class="h-full" alt="Bienestar Institucional">
-        </div>
-        <h3 class="text-lg font-bold text-blue-700 mt-4 group-hover:text-blue-800 transition-colors duration-300">
-          Bienestar Institucional
-        </h3>
-        <p class="text-gray-600 mt-2 group-hover:text-gray-800 transition-colors duration-300">
-          Promueva la satisfacción de sus estudiantes por medio de encuestas, evaluación institucional y solicitudes en
-          línea, además de tener acceso a una bolsa de empleo y gestionar las prácticas laborales en el mismo sistema.
-        </p>
-      </div>
-    </div>
-
-    <!-- Gestión Financiera -->
-    <div class="funciones-container-left-2 overflow-x-hidden md:overflow-visible">
-      <div
-        class="div-slide group flex flex-col items-center text-center p-4 bg-white shadow-lg rounded-lg hover:bg-red-100 duration-700">
-        <div
-          class="w-full h-48 flex justify-center items-center bg-gray-100 rounded-lg group-hover:bg-white transition-colors duration-700">
-          <img loading="lazy" src="https://www.q10.com/Images/ModulosEstrategicos/gestion_financiera.webp"
-            class="h-full" alt="Gestión Financiera">
-        </div>
-        <h3 class="text-lg font-bold text-red-600 mt-4 group-hover:text-red-700 transition-colors duration-300">
-          Gestión Financiera
-        </h3>
-        <p class="text-gray-600 mt-2 group-hover:text-gray-800 transition-colors duration-300">
-          Controle adecuadamente las cuentas por cobrar y los ingresos de sus estudiantes mediante órdenes de pago,
-          recibos, facturas, créditos e informes, que faciliten tomar decisiones acertadamente.
-        </p>
-      </div>
-    </div>
-
-    <!-- Comunidad en Línea -->
-    <div class="funciones-container-left-2 overflow-x-hidden md:overflow-visible">
-      <div
-        class="div-slide group flex flex-col items-center text-center p-4 bg-white shadow-lg rounded-lg hover:bg-orange-100 duration-700">
-        <div
-          class="w-full h-48 flex justify-center items-center bg-gray-100 rounded-lg group-hover:bg-white transition-colors duration-700">
-          <img loading="lazy" src="https://www.q10.com/Images/ModulosEstrategicos/comunidad_en_linea.webp"
-            class="h-full" alt="Comunidad en Línea">
-        </div>
-        <h3 class="text-lg font-bold text-orange-600 mt-4 group-hover:text-orange-700 transition-colors duration-300">
-          Comunidad en Línea
-        </h3>
-        <p class="text-gray-600 mt-2 group-hover:text-gray-800 transition-colors duration-300">
-          Aumente sus canales de comunicación entre los estudiantes, docentes y administrativos por medio del chat
-          institucional de Q10, SMS mensajes de texto y la App móvil.
-        </p>
-      </div>
-    </div>
+  <div class="position-absolute top-50 start-50 translate-middle w-75">
+    <h1 class="fw-normal display-5 mb-4">Los lugares adecuados, los momentos adecuados.</h1>
+    <button class="btn btn-outline-light text-uppercase px-4 py-2 border-2">
+      Descubra nuestros hoteles
+    </button>
   </div>
 </section>
-<!-- Fin de Funciones -->
-
-
-<!-- Soluciones para... -->
-<section class="py-20 soluciones-section" style="background-color: #f9c310;">
-  <div class="relative grid md:grid-cols-[2fr,3fr]">
-
-    <!-- primera columna (más estrecha) -->
-    <div class="">
-      <!-- Imagen (mitad izquierda) -->
-      <div class="absolute div-slide" style="top: -150px; left: 0;">
-        <img src="https://www.q10.com/images/LogosTiposInstituciones/Plataforma_Q10.webp"
-          class="w-4/6 img_responsive img-laptop" alt="Registro y visualización de notas" />
-      </div>
-    </div>
-
-    <!-- segunda columna (más ancha) -->
-    <div class="">
-      <!-- Texto (mitad derecha) -->
-      <div class="w-full pr-8 py-6 text-white">
-        <h3 class="text-upper text-5xl font-semibold mt-2 mb-12">Solución especializada para cada tipo de institución:
-        </h3>
-        <div class="relative grid md:grid-cols-2 gap-6">
-          <div class="contenedor-instituciones space-y-4">
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Colegios y Bachillerato para Adultos</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Educación Continuada</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Institutos de Idiomas</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="contenedor-instituciones space-y-4">
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Colegios y Bachillerato para Adultos</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Educación Continuada</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Institutos de Idiomas</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Botón de prueba gratuita -->
-        <div class="mt-8">
-          <a href="/PruebaGratuita/Colombia/Profesional"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect mdl-color-text--color-1 no-decoration btn-white text-bold">
-            Prueba Gratuita
-            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
-          </a>
-          <div class="mt-4">
-            <img src="/Images/Rayas_Banner_amarillo.webp" class="w-full" alt="Elementos escolares">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Fin de Soluciones para... -->
-
-
-<!-- Sección de imagen con parallax -->
-<section class="relative flex items-center justify-end w-full overflow-hidden h-[60vh]" id="parallaxSection">
-  <!-- Fondo Parallax (Imagen de fondo) -->
-  <div class="absolute top-0 left-0 w-full h-[100vh] bg-cover bg-center z-0"
-    style="background-image: url('https://www.q10.com/Images/Home/fondo_escritorio_el_momento.png');">
-    <!-- La imagen de fondo no se mueve, solo el parallax -->
-  </div>
-
-  <!-- Contenido centrado que permanece fijo sobre la imagen -->
-  <div class="relative z-10 px-4 text-center text-white">
-    <h2 class="font-semibold text-4xl mb-4">El momento es ahora</h2>
-    <a href="#" class="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">PRUEBA GRATUITA</a>
-  </div>
-</section>
-
-
-<!-- contactanos -->
-<section class="py-20" style=" background-color: #E6E6E6;">
-  <div class="relative grid md:grid-cols-[2fr,3fr]">
-
-    <!-- primera columna (más estrecha) -->
-    <div class="">
-      <!-- Imagen (mitad izquierda) -->
-      <div class="absolute div-slide" style="top: -150px; left: 10%;">
-        <img src="https://www.canonvalles.com/wp-content/uploads/2019/01/chica.png" class=" img_responsive img-laptop"
-          alt="Registro y visualización de notas" />
-      </div>
-    </div>
-
-    <!-- segunda columna (más ancha) -->
-    <div class="">
-      <!-- Texto (mitad derecha) -->
-      <div class="w-full pr-8 py-6 text-black">
-        <h3 class="text-upper text-5xl font-semibold mt-2 mb-12">Un software con respaldo empresarial
-        </h3>
-        <div class="relative grid md:grid-cols-2 gap-6">
-          <div class="contenedor-instituciones space-y-4">
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Soporte técnico</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Respaldo Tecnológico</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Seguridad de la información</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="contenedor-instituciones space-y-4">
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Garantia</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> Eficiencia y rapidez</span>
-              </div>
-            </div>
-
-            <div class="tipo-institucion">
-              <div class="nombre-tipo-institucion">
-                <span class="prestigio-item"><i class="fa fa-circle"></i> A tu modo</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Botón de prueba gratuita -->
-        <div class="mt-8">
-          <a href="/PruebaGratuita/Colombia/Profesional"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect mdl-color-text--color-1 no-decoration btn-white text-bold">
-            Prueba Gratuita
-            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
-          </a>
-          <div class="mt-4">
-            <img src="/Images/Rayas_Banner_amarillo.webp" class="w-full" alt="Elementos escolares">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<app-footer></app-footer>

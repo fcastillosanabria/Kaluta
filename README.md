@@ -1,10 +1,9 @@
-# KalutaTours
+# Kaluta
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
-
-# Requisitos
-Angular CLI: 19.2.17
-Node: 20.11.0
-Package Manager: npm 10.2.4
+## Requirements
+Angular CLI: 16.2.16
+Node: 18.20.8
+Package Manager: npm 10.8.2
 OS: win32 x64
