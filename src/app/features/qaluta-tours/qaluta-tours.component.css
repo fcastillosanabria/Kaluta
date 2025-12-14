@@ -1,0 +1,65 @@
+/* NAVBAR BASE: usar fixed para consistencia con la clase `fixed-top` en el template */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+}
+
+/* SECONDARY MENU (mantener separado debajo del nav) */
+.secondary-sticky {
+  position: sticky;
+  top: 80px;
+  z-index: 1020;
+}
+
+/* Hero */
+.hero-img {
+  height: calc(111vh - 140px) !important;
+  object-fit: cover;
+}
+
+/* Transición del nav al hacer scroll */
+.transition-nav {
+  transition: background-color .25s ease, box-shadow .25s ease;
+  -webkit-transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+/* Clases utilizadas en el binding: bg-transparent / bg-white (bootstrap) */
+nav.navbar.bg-transparent {
+  background-color: transparent !important;
+}
+
+nav.navbar.bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Clases auxiliares que podían usarse en el proyecto */
+.nav-transparent {
+  background-color: transparent !important;
+}
+
+.nav-scrolled {
+  background-color: #ffffff !important;
+}
+
+/* Sombra ligera cuando está scrolleado */
+nav.navbar.scrolled, nav.navbar.shadow-sm {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Offset para el primer contenido cuando el nav es fixed-top */
+.hero-offset {
+  padding-top: 80px; /* ajustar según la altura real del nav */
+}
+
+/* Evitar transiciones raras en elementos internos del navbar */
+.navbar * {
+  transition: none !important;
+}
+
+/* Evitamos que el logo cambie por filtros al scrollear */
+.nav-scrolled img {
+  filter: none !important;
+}

@@ -1,0 +1,151 @@
+<div class="container-fluid my-5">
+
+  <!-- SECCIÓN COMPLETA -->
+  <div class="row">
+
+    <!-- IZQUIERDA: STICKY -->
+    <div class="col-12 col-md-6 text-light bg-black">
+      <div class="sticky-left p-5">
+
+        <h2 class="mb-4" style="color: #C46C15;">
+          Nuestra Historia
+        </h2>
+
+        <p class="mb-3">
+          Desde nuestros inicios hemos trabajado con pasión
+          para construir una empresa sólida, innovadora
+          y enfocada en el cliente.
+        </p>
+
+        <!-- CONTENEDOR DE IMAGEN -->
+        <div class="image-container position-relative mt-4">
+
+          <img [src]="images[currentImageIndex]" alt="Imagen institucional"
+            class="img-fluid rounded shadow w-100 fade-image" [class.fade-in]="fadeIn">
+
+          <!-- BOTÓN PAUSA -->
+          <button class="btn btn-outline-light btn-sm pause-btn" (click)="togglePause()">
+            {{ isPaused ? 'Reanudar' : 'Pausar' }}
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- DERECHA: CONTENIDO LARGO -->
+    <div class="col-12 col-md-6 p-5">
+
+      <section class="mb-5 text-center">
+        <img src="assets/img/logoQaluta.png" alt="Logo de Qaluta" class="img-fluid" style="max-width: 400px;">
+      </section>
+
+      <section class="mb-5">
+        <h3 style="color: #C46C15;">Misión</h3>
+        <p>
+          Preservar y promover la cultura jaqaru mediante la
+          innovación tecnológica, el comercio justo y el turismo
+          vivencial sostenible, fortaleciendo la identidad cultural
+          y generando oportunidades económicas en Cañete y
+          Tupe.
+
+        </p>
+      </section>
+
+      <section class="mb-5 text-end">
+        <h3 style="color: #C46C15;">Visión</h3>
+        <p>
+          Ser la principal plataforma intercultural del Perú que
+          combina tecnología, turismo y patrimonio, reconocida
+          por revitalizar lenguas originarias y conectar culturas a
+          nivel global
+        </p>
+      </section>
+
+      <section class="mb-5 text-center">
+        <img src="assets/img/diseñoTupe.png" alt="Logo de Qaluta" class="img-fluid" style="max-width: 400px;">
+      </section>
+
+      <section class="mb-5">
+        <h3 style="color: #C46C15;">Lo que nos diferencia</h3>
+        <div class="row">
+          <div class="col-6">
+            <p>Tecnológico</p>
+            <p>Cultural</p>
+          </div>
+
+          <div class="col-6">
+            <p>Social</p>
+            <p>Económico</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h3 style="color: #C46C15;">Productos</h3>
+
+        <div class="row">
+          <div class="col-6">
+            <p>Qaluta Tours</p>
+            <p>Urpi Dictionary</p>
+            <p>Qaluta Store</p>
+          </div>
+
+          <div class="col-6">
+            <p>Qaluta 360°</p>
+            <p>Shumay IA (Proximamente..)</p>
+            <p>Qaluta Games (Proximamente..)</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="mb-5">
+        <h3 style="color: #C46C15;">Valores</h3>
+        <div class="row">
+          <div class="col-6">
+            <p>Excelencia en el Servicio</p>
+            <p>Transparencia</p>
+            <p>Compromiso</p>
+          </div>
+
+          <div class="col-6">
+            <p>Responsabilidad</p>
+            <p>Innovación</p>
+            <p>Innovación</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5 text-center">
+        <img src="assets/img/diseñoTupe.png" alt="Logo de Qaluta" class="img-fluid" style="max-width: 400px;">
+      </section>
+
+      <section class="mb-5">
+        <div class="row align-items-center">
+
+          <!-- TEXTO: Lado izquierdo -->
+          <div class="col-12 col-md-6 p-5 text-md-left">
+            <h3 class="mb-3" style="color: #C46C15;">El mundo necesita más Qaluta. <br> ¿Te unes?</h3>
+            <p class="lead">
+              Como CEO de Qaluta, creo firmemente en la misión de mejorar y crear un impacto significativo en el mundo.
+            </p>
+            <small class="text-muted">CEO - Qaluta</small>
+          </div>
+
+          <!-- IMAGEN: Lado derecho -->
+          <div class="col-12 col-md-6 p-5 text-center">
+            <img src="assets/img/fotoCEO.png" alt="CEO de Qaluta" class="img-fluid rounded-circle shadow"
+              style="max-width: 90%; height: auto;">
+          </div>
+
+        </div>
+      </section>
+
+
+    </div>
+
+  </div>
+</div>

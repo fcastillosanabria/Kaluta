@@ -1,0 +1,45 @@
+.sticky-left {
+  position: sticky;
+  top: 100px; /* distancia desde el top al hacer scroll */
+}
+
+
+.sticky-left img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+
+
+@media (max-width: 768px) {
+  .sticky-left {
+    position: relative;
+    top: 0;
+  }
+}
+
+
+.image-container {
+  max-width: 100%;
+}
+
+/* IMAGEN PROFESIONAL UNIFICADA */
+.fade-image {
+  height: 320px; /* 👈 ESTA ES LA MEDIDA PERFECTA */
+  object-fit: cover; /* CLAVE: agranda pequeñas, recorta grandes */
+  transition: opacity 0.6s ease-in-out;
+  opacity: 0;
+}
+
+/* FADE ACTIVO */
+.fade-image.fade-in {
+  opacity: 1;
+}
+
+/* BOTÓN PAUSA */
+.pause-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  backdrop-filter: blur(4px);
+}

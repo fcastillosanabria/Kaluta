@@ -1,0 +1,48 @@
+.brand-parallax {
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.parallax-inner {
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+
+/* LOGO */
+.logo-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo-symbol {
+  width: 120px;
+}
+
+.logo-text {
+  width: 220px;
+  margin-top: 16px;
+}
+
+/* CONTENIDO IZQUIERDO */
+.content-wrapper {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.story-block {
+  position: absolute;
+  opacity: 0;
+  color: white;
+  text-align: left;
+  max-width: 420px;
+}

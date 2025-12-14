@@ -1,0 +1,26 @@
+.stack-container {
+  width: 300px;
+  height: 400px;
+  perspective: 800px;
+}
+
+.img-stack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  transform-origin: center;
+}
+
+/* separación FINAL (sutil) */
+.img-1 {
+  transform: translateX(170px) translateY(0);
+}
+
+.img-2 {
+  transform: translateX(8px) translateY(6px);
+}
+
+.img-3 {
+  max-width: 70%;
+  transform: translateX(120px) translateY(190px);
+}
