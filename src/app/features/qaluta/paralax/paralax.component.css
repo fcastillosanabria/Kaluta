@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .logo-symbol {
@@ -26,7 +26,6 @@
 
 .logo-text {
   width: 220px;
-  margin-top: 16px;
 }
 
 /* CONTENIDO IZQUIERDO */

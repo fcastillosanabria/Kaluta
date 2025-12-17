@@ -12,6 +12,9 @@ import { FooterComponent } from './features/qaluta/footer/footer.component';
 import { HomeComponent } from './features/qaluta/home/home.component';
 import { ChatbotComponent } from './features/qaluta/chatbot/chatbot.component';
 import { ParalaxComponent } from './features/qaluta/paralax/paralax.component';
+import { QalutaDictionaryComponent } from './features/qaluta-dictionary/qaluta-dictionary.component';
+import { Qaluta360Component } from './features/qaluta-360/qaluta-360.component';
+import { QalutaStoreComponent } from './features/qaluta-store/qaluta-store.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { ParalaxComponent } from './features/qaluta/paralax/paralax.component';
     SeccionQalutaStoreComponent,
     ChatbotComponent,
     ParalaxComponent,
+    QalutaDictionaryComponent,
+    Qaluta360Component,
+    QalutaStoreComponent,
   ],
   imports: [
     BrowserModule,
