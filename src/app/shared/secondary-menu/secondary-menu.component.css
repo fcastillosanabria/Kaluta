@@ -1,0 +1,20 @@
+.qaluta-nav {
+  justify-content: center;
+}
+
+.qaluta-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.qaluta-link:hover {
+  text-decoration: underline;
+  color: #C46C15;
+  scale: 1.05;
+}
+
+.qaluta-link.active {
+  font-weight: 700;
+  color: #C46C15;
+}

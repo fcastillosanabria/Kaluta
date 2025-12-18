@@ -5,11 +5,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
-  selector: 'app-paralax',
-  templateUrl: './paralax.component.html',
-  styleUrls: ['./paralax.component.css'],
+  selector: 'app-scroll-sequence',
+  templateUrl: './scroll-sequence.component.html',
+  styleUrls: ['./scroll-sequence.component.css']
 })
-export class ParalaxComponent implements AfterViewInit {
+export class ScrollSequenceComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     gsap
       .timeline({
@@ -46,7 +46,7 @@ export class ParalaxComponent implements AfterViewInit {
 
       /* LOGO SE MUEVE A LA DERECHA */
       .to('.logo-wrapper', {
-        xPercent: 20,
+        xPercent: 30,
         ease: 'power2.inOut',
       })
 
@@ -66,6 +66,13 @@ export class ParalaxComponent implements AfterViewInit {
       /* BLOQUE 3 */
       .to('.block-2', { opacity: 0 })
       .to('.block-3', {
+        opacity: 1,
+        y: -20,
+      })
+
+      /* BLOQUE 4 */
+      .to('.block-3', { opacity: 0 })
+      .to('.block-4', {
         opacity: 1,
         y: -20,
       });
