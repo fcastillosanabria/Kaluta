@@ -12,9 +12,12 @@ import { FooterComponent } from './features/qaluta/footer/footer.component';
 import { HomeComponent } from './features/qaluta/home/home.component';
 import { ChatbotComponent } from './features/qaluta/chatbot/chatbot.component';
 import { QalutaDictionaryComponent } from './features/qaluta-dictionary/qaluta-dictionary.component';
-import { Qaluta360Component } from './features/qaluta-360/qaluta-360.component';
 import { QalutaStoreComponent } from './features/qaluta-store/qaluta-store.component';
 import { ScrollSequenceComponent } from './features/qaluta/scroll-sequence/scroll-sequence.component';
+import { SocialMediaComponent } from './shared/social-media/social-media.component';
+import { Qaluta360HomeComponent } from './features/qaluta-360/qaluta-360-home/qaluta-360-home.component';
+import { Qaluta360SliderComponent } from './features/qaluta-360/qaluta-360-slider/qaluta-360-slider.component';
+import { Qaluta360SalasComponent } from './features/qaluta-360/qaluta-360-salas/qaluta-360-salas.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,13 @@ import { ScrollSequenceComponent } from './features/qaluta/scroll-sequence/scrol
     SeccionQalutaStoreComponent,
     ChatbotComponent,
     QalutaDictionaryComponent,
-    Qaluta360Component,
+    Qaluta360HomeComponent,
     QalutaStoreComponent,
     ScrollSequenceComponent,
+    SocialMediaComponent,
+    Qaluta360HomeComponent,
+    Qaluta360SliderComponent,
+    Qaluta360SalasComponent,
   ],
   imports: [
     BrowserModule,

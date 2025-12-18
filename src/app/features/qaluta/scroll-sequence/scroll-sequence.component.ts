@@ -19,7 +19,7 @@ export class ScrollSequenceComponent implements AfterViewInit {
           end: '+=400%',
           scrub: 1,
           pin: true,
-          markers: true,
+          markers: false,
         },
       })
 
