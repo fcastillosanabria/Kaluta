@@ -6,12 +6,10 @@
       <aside class="col-lg-2 d-none d-lg-block border-end filters-sticky">
         <h6 class="fw-bold mb-3">Filtros</h6>
 
-        <div class="mb-3" *ngFor="let f of ['Tipo de palabra','Significado o contexto','Frecuencia de uso','Visuales y Sonoros']">
-          <button
-            class="btn w-100 d-flex justify-content-between fw-semibold px-0"
-            data-bs-toggle="collapse"
-            [attr.data-bs-target]="'#'+f"
-          >
+        <div class="mb-3"
+          *ngFor="let f of ['Tipo de palabra']">
+          <button class="btn w-100 d-flex justify-content-between fw-semibold px-0" data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#'+f">
             {{ f }}
             <i class="bi bi-chevron-down"></i>
           </button>
@@ -23,89 +21,212 @@
       </aside>
 
       <!-- CONTENIDO -->
-      <main class="col-lg-5 px-lg-4">
-        <div class="d-flex align-items-center mb-3 gap-2">
-          <h4 class="mb-0">{{ word.title }}</h4>
-          <input
-            type="text"
-            class="form-control w-50"
-            placeholder="Buscar en Urpi Dictionary"
-          >
-          <button class="btn btn-warning">Buscar</button>
-        </div>
+      <main class="col-lg-8 px-lg-8">
 
-        <div class="mb-3 d-flex gap-3 small">
-          <a href="#">Información</a>
-          <a href="#">Descargar como PDF</a>
-          <a href="#">Descargar código QR</a>
-        </div>
+        <!-- Buscador -->
+        <div>
+          <div class="d-flex align-items-center mb-3 gap-2">
+            <h4 class="mb-0">{{ word.title }}</h4>
+            <input type="text" class="form-control w-50" placeholder="Buscar en Urpi Dictionary">
+            <button class="btn btn-warning">Buscar</button>
+          </div>
 
-        <p class="text-muted" style="white-space: pre-line">
-          {{ word.description }}
-        </p>
-
-        <h6 class="fw-bold mt-4">Historia</h6>
-        <p class="text-muted">
-          {{ word.description }}
-        </p>
-      </main>
-
-      <!-- INFO LATERAL -->
-      <aside class="col-lg-3">
-        <div class="info-card p-3">
-
-          <h6 class="fw-bold mb-3">Urpi Dictionary</h6>
-
-          <img
-            [src]="word.image"
-            class="img-fluid rounded mb-3"
-            alt="Urpi"
-          >
-
-          <table class="table table-sm">
-            <tbody>
-              <tr>
-                <th>Tipo</th>
-                <td>{{ word.info.tipo }}</td>
-              </tr>
-              <tr>
-                <th>Fundación</th>
-                <td>{{ word.info.fundacion }}</td>
-              </tr>
-              <tr>
-                <th>Fundador</th>
-                <td>{{ word.info.fundador }}</td>
-              </tr>
-              <tr>
-                <th>Desarrolladores</th>
-                <td>{{ word.info.desarrolladores }}</td>
-              </tr>
-              <tr>
-                <th>Sitio web</th>
-                <td><a [href]="word.info.web" target="_blank">Ver</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </aside>
-
-<aside class="col-lg-2 d-none d-lg-block border-end filters-sticky">
-        <h6 class="fw-bold mb-3">Filtros</h6>
-
-        <div class="mb-3" *ngFor="let f of ['Tipo de palabra','Significado o contexto','Frecuencia de uso','Visuales y Sonoros']">
-          <button
-            class="btn w-100 d-flex justify-content-between fw-semibold px-0"
-            data-bs-toggle="collapse"
-            [attr.data-bs-target]="'#'+f"
-          >
-            {{ f }}
-            <i class="bi bi-chevron-down"></i>
-          </button>
-
-          <div class="collapse show" [id]="f">
-            <small class="text-muted">Opciones</small>
+          <div class="mb-3 d-flex gap-3 small">
+            <a href="#">Información</a>
+            <a href="#">Descargar como PDF</a>
+            <a href="#">Descargar código QR</a>
           </div>
         </div>
+
+        <!-- Detalles de la busqueda -->
+        <div class="container my-4">
+          <div class="row">
+            <!-- DESCRIPCIÓN -->
+            <div class="col-lg-8">
+              <p class="text-muted" style="white-space: pre-line">
+                {{ word.description }}
+              </p>
+
+              <div>
+                <h6 class="fw-bold mt-4">Historia</h6>
+                <p class="text-muted">
+                  {{ word.description }}
+                </p>
+              </div>
+            </div>
+
+            <!-- INFO LATERAL -->
+            <aside class="col-lg-4">
+              <div class="info-card p-3">
+
+                <h6 class="fw-bold mb-3">Urpi Dictionary</h6>
+
+                <img [src]="word.image" class="img-fluid rounded mb-3" alt="Urpi">
+
+                <table class="table table-sm">
+                  <tbody>
+                    <tr>
+                      <th>Tipo</th>
+                      <td>{{ word.info.tipo }}</td>
+                    </tr>
+                    <tr>
+                      <th>Fundación</th>
+                      <td>{{ word.info.fundacion }}</td>
+                    </tr>
+                    <tr>
+                      <th>Fundador</th>
+                      <td>{{ word.info.fundador }}</td>
+                    </tr>
+                    <tr>
+                      <th>Desarrolladores</th>
+                      <td>{{ word.info.desarrolladores }}</td>
+                    </tr>
+                    <tr>
+                      <th>Sitio web</th>
+                      <td><a [href]="word.info.web" target="_blank">Ver</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- MISIÓN Y VISIÓN -->
+        <div class="mt-5">
+          <!-- TÍTULO -->
+          <h4 class="fw-bold mb-3">Misión y Visión</h4>
+          <hr>
+
+          <!-- MISIÓN -->
+          <div class="row align-items-start mb-5">
+            <div class="col-lg-8">
+
+              <h6 class="fw-bold">Misión</h6>
+              <p class="text-muted">
+                La Declaración de Misión de la Fundación Wikimedia describe sus actividades
+                y propósitos actuales, el ámbito de sus proyectos y valores principales.
+                La declaración de misión actual de la Fundación Wikimedia es:
+              </p>
+
+              <blockquote class="quote-box">
+                “Nuestro objetivo con este diccionario virtual es facilitar el acceso y
+                aprendizaje del Jaqaru, permitiendo la traducción entre español y Jaqaru
+                de manera sencilla e intuitiva. Queremos que esta herramienta no solo ayude
+                a quienes desean aprender el idioma, sino que también sirva como un recurso
+                clave para la comunidad, investigadores y cualquier persona interesada en
+                conocer más sobre esta lengua y su riqueza cultural.”
+              </blockquote>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+              <div class="profile">
+                <div class="avatar">
+                  <img src="assets/img/fotoCEO.png" alt="Francis Castillo">
+                </div>
+                <p class="fw-bold mb-0 mt-2">Francis Castillo Sanabria</p>
+                <small class="text-muted">CEO</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- VISIÓN -->
+          <div class="row align-items-start flex-lg-row-reverse">
+            <div class="col-lg-8">
+
+              <h6 class="fw-bold">Visión</h6>
+              <p class="text-muted">
+                La Declaración de Visión de la Fundación Wikimedia describe sus actividades
+                y propósitos actuales, el ámbito de sus proyectos y valores principales.
+                La declaración de visión actual de la Fundación Wikimedia es:
+              </p>
+
+              <blockquote class="quote-box">
+                “Este proyecto nace con una visión clara: contribuir a la revitalización
+                del Jaqaru y darle el lugar que merece en el mundo digital. Queremos que
+                más personas conozcan esta lengua, la valoren y la usen, asegurando que
+                su legado no se pierda con el tiempo. Gracias a la tecnología, podemos
+                preservar y compartir este conocimiento con futuras generaciones,
+                manteniéndolo vivo en internet y accesible para todos.”
+              </blockquote>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+              <div class="profile">
+                <div class="avatar">
+                  <img src="assets/img/fotoCEO.png" alt="Gabriel Gutierrez">
+                </div>
+                <p class="fw-bold mb-0 mt-2">Dayron Soncco</p>
+                <small class="text-muted">Socio</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- APARIENCIA -->
+      <aside class="col-lg-2 d-none d-lg-block border-start ps-3 filters-sticky">
+
+        <h6 class="fw-bold mb-3">Apariencia</h6>
+        <hr>
+
+        <!-- TEXTO -->
+        <div class="mb-4">
+          <small class="text-muted fw-semibold d-block mb-2">Texto</small>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="textSize" id="textSmall">
+            <label class="form-check-label" for="textSmall">
+              Pequeño
+            </label>
+          </div>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="textSize" id="textNormal" checked>
+            <label class="form-check-label" for="textNormal">
+              Estandar
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="textSize" id="textLarge">
+            <label class="form-check-label" for="textLarge">
+              Grande
+            </label>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- COLOR -->
+        <div>
+          <small class="text-muted fw-semibold d-block mb-2">Color</small>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="themeColor" id="colorAuto">
+            <label class="form-check-label" for="colorAuto">
+              Automatico
+            </label>
+          </div>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="themeColor" id="colorLight" checked>
+            <label class="form-check-label" for="colorLight">
+              Blanco
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="themeColor" id="colorDark">
+            <label class="form-check-label" for="colorDark">
+              Oscuro
+            </label>
+          </div>
+        </div>
+
       </aside>
 
     </div>
