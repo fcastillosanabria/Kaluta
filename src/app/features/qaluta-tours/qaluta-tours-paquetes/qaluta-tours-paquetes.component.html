@@ -1,0 +1,47 @@
+<section class="tour-section py-5">
+  <div class="container-fluid">
+
+    <h3 class="fw-bold mb-4">Paquetes turísticos</h3>
+
+    <div class="row flex-nowrap overflow-auto gx-4">
+
+      <div
+        class="col-10 col-sm-6 col-md-4 col-lg-3"
+        *ngFor="let item of packages"
+      >
+        <div class="tour-card h-100">
+
+          <!-- Imagen -->
+          <div class="image-wrapper">
+            <img [src]="item.image" [alt]="item.title">
+
+            <span class="badge-top" *ngIf="item.days">
+              {{ item.days }}
+            </span>
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-3 d-flex flex-column h-100">
+            <small class="text-uppercase text-muted fw-semibold">
+              {{ item.type }}
+            </small>
+
+            <h6 class="fw-bold mt-1">{{ item.title }}</h6>
+
+            <p class="text-muted mb-1">{{ item.subtitle }}</p>
+            <p class="text-muted small">{{ item.description }}</p>
+
+            <span class="tag mb-3">{{ item.tag }}</span>
+
+            <div class="mt-auto">
+              <p class="mb-0 small text-muted">Precio desde</p>
+              <h5 class="fw-bold">S/. {{ item.price }}</h5>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
