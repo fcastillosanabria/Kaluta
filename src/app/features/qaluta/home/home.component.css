@@ -93,33 +93,7 @@ nav.navbar.scrolled, nav.navbar.shadow-sm {
 
 
 
-/* estilos de los que nos respaldan */
-.partner-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
 
-.partner-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
-}
-
-/* LOGOS */
-.partner-logo {
-  max-height: 80px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  transition: all 0.3s ease;
-}
-
-.partner-card:hover .partner-logo {
-  filter: grayscale(0%);
-  transform: scale(1.05);
-}
 
 
 /* estilos de la galeria */

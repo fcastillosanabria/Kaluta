@@ -25,6 +25,8 @@ import { QalutaToursSliderComponent } from './features/qaluta-tours/qaluta-tours
 import { QalutaDictionaryHomeComponent } from './features/qaluta-dictionary/qaluta-dictionary-home/qaluta-dictionary-home.component';
 import { QalutaDictionarySliderComponent } from './features/qaluta-dictionary/qaluta-dictionary-slider/qaluta-dictionary-slider.component';
 import { QalutaDictionaryContenidoComponent } from './features/qaluta-dictionary/qaluta-dictionary-contenido/qaluta-dictionary-contenido.component';
+import { PartnersComponent } from './shared/partners/partners.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -55,10 +57,12 @@ import { QalutaDictionaryContenidoComponent } from './features/qaluta-dictionary
     QalutaDictionaryHomeComponent,
     QalutaDictionarySliderComponent,
     QalutaDictionaryContenidoComponent,
+    PartnersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,8 +6,7 @@
       <aside class="col-lg-2 d-none d-lg-block border-end filters-sticky">
         <h6 class="fw-bold mb-3">Filtros</h6>
 
-        <div class="mb-3"
-          *ngFor="let f of ['Tipo de palabra']">
+        <div class="mb-3" *ngFor="let f of ['Tipo de palabra']">
           <button class="btn w-100 d-flex justify-content-between fw-semibold px-0" data-bs-toggle="collapse"
             [attr.data-bs-target]="'#'+f">
             {{ f }}
@@ -25,75 +24,134 @@
 
         <!-- Buscador -->
         <div>
+
           <div class="d-flex align-items-center mb-3 gap-2">
-            <h4 class="mb-0">{{ word.title }}</h4>
-            <input type="text" class="form-control w-50" placeholder="Buscar en Urpi Dictionary">
-            <button class="btn btn-warning">Buscar</button>
-          </div>
 
-          <div class="mb-3 d-flex gap-3 small">
-            <a href="#">Información</a>
-            <a href="#">Descargar como PDF</a>
-            <a href="#">Descargar código QR</a>
-          </div>
-        </div>
+            <!-- CONTENEDOR DEL INPUT -->
+            <div class="position-relative flex-grow-1">
 
-        <!-- Detalles de la busqueda -->
-        <div class="container my-4">
-          <div class="row">
-            <!-- DESCRIPCIÓN -->
-            <div class="col-lg-8">
-              <p class="text-muted" style="white-space: pre-line">
-                {{ word.description }}
-              </p>
+              <input type="text" class="form-control" placeholder="Buscar en Urpi Dictionary" [(ngModel)]="searchTerm"
+                (ngModelChange)="onInputChange($event)" (keyup.enter)="search()">
 
-              <div>
-                <h6 class="fw-bold mt-4">Historia</h6>
-                <p class="text-muted">
-                  {{ word.description }}
-                </p>
-              </div>
+              <!-- SUGERENCIAS -->
+              <ul *ngIf="suggestions.length" class="list-group position-absolute w-100 shadow"
+                style="z-index: 1000; max-height: 250px; overflow-y: auto;">
+                <li class="list-group-item list-group-item-action" *ngFor="let s of suggestions"
+                  (click)="selectSuggestion(s)">
+
+                  <!-- EMPRESA -->
+                  <ng-container *ngIf="s.type === 'company'">
+                    <strong>{{ s.title }}</strong>
+                    <div class="small text-muted">Página principal</div>
+                  </ng-container>
+
+                  <!-- PALABRA -->
+                  <ng-container *ngIf="s.type === 'word'">
+                    <strong>{{ s.titleEspanol }}</strong>
+                    <div class="small text-muted">{{ s.titleJaqaru }}</div>
+                  </ng-container>
+
+                </li>
+
+              </ul>
+
             </div>
 
-            <!-- INFO LATERAL -->
-            <aside class="col-lg-4">
-              <div class="info-card p-3">
+            <!-- BOTÓN -->
+            <button class="btn btn-warning" (click)="search()">Buscar</button>
 
-                <h6 class="fw-bold mb-3">Urpi Dictionary</h6>
+          </div>
 
-                <img [src]="word.image" class="img-fluid rounded mb-3" alt="Urpi">
 
-                <table class="table table-sm">
-                  <tbody>
-                    <tr>
-                      <th>Tipo</th>
-                      <td>{{ word.info.tipo }}</td>
-                    </tr>
-                    <tr>
-                      <th>Fundación</th>
-                      <td>{{ word.info.fundacion }}</td>
-                    </tr>
-                    <tr>
-                      <th>Fundador</th>
-                      <td>{{ word.info.fundador }}</td>
-                    </tr>
-                    <tr>
-                      <th>Desarrolladores</th>
-                      <td>{{ word.info.desarrolladores }}</td>
-                    </tr>
-                    <tr>
-                      <th>Sitio web</th>
-                      <td><a [href]="word.info.web" target="_blank">Ver</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </aside>
+          <div class="mx-3 d-flex align-items-center mb-3 gap-2">
+            <h4 *ngIf="currentContent.type === 'company'">
+              {{ currentContent.title }}
+            </h4>
+
+            <h4 *ngIf="currentContent.type === 'word'">
+              {{ currentContent.titleEspanol }} — {{ currentContent.titleJaqaru }}
+            </h4>
+
+          </div>
+
+          <div class="mx-3 d-flex gap-3 justify-content-between">
+            <div>
+              <h6 class="">Información</h6>
+            </div>
+            <div>
+              <a (click)="exportAsPDF()" style="cursor: pointer;">
+                Descargar como PDF
+              </a>
+            </div>
           </div>
         </div>
 
+        <div #exportContent>
+          <!-- Detalles de la busqueda -->
+          <div class="container my-4">
+            <div class="row">
+              <!-- DESCRIPCIÓN -->
+              <div class="col-lg-8">
+                <div class="mx-1">
+                  <p class="text-muted">
+                    {{ currentContent.description }}
+                  </p>
+                </div>
+              </div>
+
+              <!-- INFO LATERAL -->
+              <aside class="col-lg-4">
+                <div class="info-card p-3">
+
+                  <h6 class="fw-bold mb-3 text-center">
+                    {{ currentContent.type === 'company' ? 'Urpi Dictionary' : 'Información' }}
+                  </h6>
+
+                  <div class="bg-white">
+                    <h5 *ngIf="currentContent.type === 'word'" class="fw-bold mb-3 text-center">
+                      {{ currentContent.titleEspanol }}
+                    </h5>
+                  </div>
+
+                  <div class="bg-white">
+                    <h5 *ngIf="currentContent.type === 'word'" class=" mb-3 text-center">
+                      {{ currentContent.titleJaqaru }}
+                    </h5>
+                  </div>
+
+
+                  <div class="d-flex justify-content-center align-items-center">
+                    <img [src]="currentContent.image" class="img-fluid rounded mb-3">
+                  </div>
+
+
+
+                  <table class="table table-sm">
+                    <tbody>
+                      <tr *ngFor="let item of currentContent.info | keyvalue">
+                        <th>{{ item.key }}</th>
+                        <td>{{ item.value }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div *ngIf="currentContent.type === 'word' && currentContent.ejemplos?.length">
+            <h6 class="fw-bold mt-4">Ejemplos</h6>
+
+            <div *ngFor="let e of currentContent.ejemplos">
+              <p class="mb-1">{{ e.ejemplo }}</p>
+              <small class="text-muted">{{ e.traduccion }}</small>
+            </div>
+          </div>
+        </div>
+
+
         <!-- MISIÓN Y VISIÓN -->
-        <div class="mt-5">
+        <div class="mt-5" *ngIf="currentContent.type === 'company'">
           <!-- TÍTULO -->
           <h4 class="fw-bold mb-3">Misión y Visión</h4>
           <hr>

@@ -39,4 +39,9 @@ button.btn:focus {
   cursor: pointer;
 }
 
+.filters-sticky {
+  position: sticky;
+  top: 150px; /* AJUSTA según la altura de tu navbar fixed-top */
+  height: fit-content;
+}
 

@@ -1,28 +1,165 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  COMPANY_DATA,
+  CompanyInfo,
+  DICTIONARY_WORDS,
+  DictionaryWord,
+} from 'src/app/data/dictionary.mock';
+
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-qaluta-dictionary-contenido',
   templateUrl: './qaluta-dictionary-contenido.component.html',
   styleUrls: ['./qaluta-dictionary-contenido.component.css'],
 })
-export class QalutaDictionaryContenidoComponent {
-  word = {
-    title: 'Urpi Dictionary',
-    description: `
-      La Fundación Wikimedia (en inglés: Wikimedia Foundation, Inc.) (abreviada como WMF) es una organización sin fines de lucro estadounidense con sede en San Francisco, California, y registrada allí como una fundación benéfica.5​ Es la anfitriona de Wikipedia, el séptimo sitio web más visitado del mundo. También alberga otros catorce proyectos similares y apoya el desarrollo de MediaWiki, el software wiki que sustenta a todos ellos.6​7​8​ La Fundación fue establecida en 2003 en San Petersburgo, Florida, por Jimmy Wales, como una forma sin fines de lucro para financiar sus proyectos wiki de colaboración masiva.9​ Anteriormente, estos habían sido alojados por Bomis, la empresa con fines de lucro de Wales.9​
+export class QalutaDictionaryContenidoComponent implements OnInit {
+  @ViewChild('exportContent') exportContent!: ElementRef;
 
-La Fundación Wikimedia (en inglés: Wikimedia Foundation, Inc.) (abreviada como WMF) es una organización sin fines de lucro estadounidense con sede en San Francisco, California, y registrada allí como una fundación benéfica.5​ Es la anfitriona de Wikipedia, el séptimo sitio web más visitado del mundo. También alberga otros catorce proyectos similares y apoya el desarrollo de MediaWiki, el software wiki que sustenta a todos ellos.6​7​8​ La Fundación fue establecida en 2003 en San Petersburgo, Florida, por Jimmy Wales, como una forma sin fines de lucro para financiar sus proyectos wiki de colaboración masiva.9​ Anteriormente, estos habían sido alojados por Bomis, la empresa con fines de lucro de Wales.9​
-    `,
-    image: 'assets/img/logoUrpiDictionaryBlanco.png',
-    info: {
-      tipo: 'Organización sin fines de lucro y asociación caritativa',
-      fundacion: 'Cañete, Lima (Perú) – 20 de junio de 2003',
-      fundador: 'Francis Castillo Sanabria',
-      desarrolladores: 'Francis Castillo Sanabria',
-      web: 'https://urpidictionary.com',
-      facebook: 'https://facebook.com',
-      instagram: 'https://instagram.com',
-      youtube: 'https://youtube.com',
-    },
-  };
+  // 🔹 ESTE ES EL ESTADO ÚNICO
+  currentContent: CompanyInfo | DictionaryWord = COMPANY_DATA;
+
+  searchTerm = '';
+  suggestions: (DictionaryWord | CompanyInfo)[] = [];
+
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const term = params.get('term');
+
+      if (term) {
+        this.loadWord(term);
+      } else {
+        this.currentContent = COMPANY_DATA;
+      }
+    });
+  }
+
+  exportAsPDF() {
+  const element = this.exportContent.nativeElement;
+
+  html2canvas(element, { scale: 2, useCORS: true }).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+
+    // 📄 A4 horizontal
+    const pdf = new jsPDF('l', 'mm', 'a4');
+
+    const pageWidth = 297;
+    const pageHeight = 210;
+
+    const margin = 10;
+
+    const imgWidth = pageWidth - margin * 2;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    // 🖼️ Insertar imagen centrada
+    pdf.addImage(
+      imgData,
+      'PNG',
+      margin,
+      margin,
+      imgWidth,
+      imgHeight
+    );
+
+    // 🖊️ Dibujar borde
+    pdf.setLineWidth(0.5);
+    pdf.rect(
+      5,
+      5,
+      pageWidth - 10,
+      pageHeight - 10
+    );
+
+    pdf.save(this.getExportFileName() + '.pdf');
+  });
+}
+
+
+  getExportFileName(): string {
+    if (this.currentContent.type === 'company') {
+      return 'urpi-dictionary';
+    }
+
+    return this.currentContent.titleEspanol.toLowerCase();
+  }
+
+  // 🔹 CARGA DESDE URL
+  private loadWord(term: string) {
+    const found = DICTIONARY_WORDS.find(
+      (w) =>
+        w.titleEspanol.toLowerCase() === term.toLowerCase() ||
+        w.titleJaqaru.toLowerCase() === term.toLowerCase()
+    );
+
+    if (found) {
+      this.currentContent = found;
+      this.searchTerm = found.titleEspanol;
+    }
+  }
+
+  // 🔹 SOLO CAMBIA URL
+  search() {
+    const value = this.searchTerm.trim().toLowerCase();
+
+    if (!value) return;
+
+    // 🔹 SI BUSCA LA EMPRESA
+    if (value === 'urpi dictionary') {
+      this.router.navigate(['/qaluta-dictionary']);
+      return;
+    }
+
+    // 🔹 SI BUSCA UNA PALABRA
+    this.router.navigate(['/qaluta-dictionary', value]);
+  }
+
+  // 🔹 SUGERENCIAS
+  onInputChange(value: string) {
+    const v = value.toLowerCase().trim();
+
+    if (!v) {
+      this.suggestions = [];
+      return;
+    }
+
+    const results: (DictionaryWord | CompanyInfo)[] = [];
+
+    // 🔹 EMPRESA
+    if (COMPANY_DATA.title.toLowerCase().includes(v)) {
+      results.push(COMPANY_DATA);
+    }
+
+    // 🔹 PALABRAS
+    const words = DICTIONARY_WORDS.filter(
+      (w) =>
+        w.titleEspanol.toLowerCase().includes(v) ||
+        w.titleJaqaru.toLowerCase().includes(v)
+    );
+
+    results.push(...words.slice(0, 5));
+
+    this.suggestions = results;
+  }
+
+  // 🔹 CLICK EN SUGERENCIA
+  selectSuggestion(item: DictionaryWord | CompanyInfo) {
+    // 👉 SI ES EMPRESA
+    if (item.type === 'company') {
+      this.router.navigate(['/qaluta-dictionary']);
+      this.suggestions = [];
+      return;
+    }
+
+    // 👉 SI ES PALABRA
+    this.router.navigate([
+      '/qaluta-dictionary',
+      item.titleEspanol.toLowerCase(),
+    ]);
+
+    this.suggestions = [];
+  }
 }

@@ -7,15 +7,7 @@ import { Component } from '@angular/core';
 })
 export class QalutaToursPaquetesComponent {
   packages = [
-    {
-      type: 'VIAJE',
-      title: 'Qaluta Libre',
-      subtitle: 'Partiendo desde Lima',
-      description: 'Solo transporte',
-      image: 'assets/img/tupinachaca.jpg',
-      price: 180,
-      tag: 'Ida y vuelta',
-    },
+
     {
       type: 'VIAJE',
       title: 'Sabores de Qaluta',
@@ -30,7 +22,7 @@ export class QalutaToursPaquetesComponent {
       title: 'Vivir Qaluta',
       subtitle: 'Partiendo desde Lima',
       description: 'Viaje + comida + hospedaje',
-      image: 'assets/img/tupinachaca.jpg',
+      image: 'assets/img/parqueTupe.jpg',
       price: 420,
       tag: 'Recomendado',
     },
@@ -39,7 +31,7 @@ export class QalutaToursPaquetesComponent {
       title: 'Jaqaru Vivo',
       subtitle: 'Turismo cultural',
       description: 'Experiencia educativa',
-      image: 'assets/img/tupinachaca.jpg',
+      image: 'assets/img/iglesiaTupe.jpeg',
       price: 520,
       tag: 'Oferta Especial',
       rating: 4.8,
