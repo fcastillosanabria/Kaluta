@@ -13,7 +13,7 @@ export class QalutaStoreProductosComponent {
       category: 'Polo para mujeres',
       colors: 2,
       price: 39.90,
-      image: 'assets/img/poloShumay.png',
+      image: 'assets/img/poloShumay.webp',
       badge: 'Lo Más Vendido'
     },
     {
@@ -21,7 +21,7 @@ export class QalutaStoreProductosComponent {
       category: 'Polo para niños',
       colors: 2,
       price: 39.90,
-      image: 'assets/img/poloNiñosTupe.png',
+      image: 'assets/img/poloNiñosTupe.webp',
       badge: 'Lo Más Vendido'
     },
     {
@@ -29,7 +29,7 @@ export class QalutaStoreProductosComponent {
       category: 'Polo para hombres',
       colors: 3,
       price: 39.90,
-      image: 'assets/img/poloAmoTupe.png',
+      image: 'assets/img/amoTupe.webp',
       badge: 'Lo Más Vendido'
     },
     {
@@ -37,7 +37,7 @@ export class QalutaStoreProductosComponent {
       category: 'Polo para hombres',
       colors: 3,
       price: 39.90,
-      image: 'assets/img/poloAmoTupe.png',
+      image: 'assets/img/amoTupe.webp',
       badge: 'Lo Más Vendido'
     },
     {
@@ -45,7 +45,7 @@ export class QalutaStoreProductosComponent {
       category: 'Polo para hombres',
       colors: 3,
       price: 39.90,
-      image: 'assets/img/poloAmoTupe.png',
+      image: 'assets/img/amoTupe.webp',
       badge: 'Lo Más Vendido'
     }
   ];

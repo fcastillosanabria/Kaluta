@@ -62,6 +62,7 @@ export const DICTIONARY_WORDS: DictionaryWord[] = [
     description: 'El gato es un mamífero doméstico...',
     image: 'assets/img/gato.webp',
     info: {
+      Tipo: 'Animal',
       Tamaño: 'Pequeño',
       Peso: '4 – 6 kg',
       Longevidad: '12 – 18 años',
@@ -81,7 +82,7 @@ export const DICTIONARY_WORDS: DictionaryWord[] = [
     image: 'https://lh3.googleusercontent.com/d/1WkKBHEEgRtScnE8aqsHRN60lfPznbRMp=s220?authuser=0',
 
     info: {
-      Tipo: 'Objeto',
+      Tipo: 'Animal',
       Material: 'Madera',
       Uso: 'Comer, trabajar',
       Forma: 'Rectangular',
@@ -104,7 +105,7 @@ export const DICTIONARY_WORDS: DictionaryWord[] = [
     image: 'https://lh3.googleusercontent.com/d/1rROQ5yHBs8QR_cZxI7qLJfy5_K1jVT6p=s220?authuser=0',
 
     info: {
-      Tipo: 'Objeto',
+      Tipo: 'Animal',
       Material: 'Madera',
       Uso: 'Comer, trabajar',
       Forma: 'Rectangular',

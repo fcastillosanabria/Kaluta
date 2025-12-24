@@ -9,7 +9,7 @@ import { filter } from 'rxjs/operators';
 })
 export class HeaderComponent {
   isScrolled = false;
-  logoSrc = 'assets/img/logoQaluta.png';
+  logoSrc = 'assets/img/logoQaluta.webp';
 
   constructor(private router: Router) {
     this.router.events
@@ -34,13 +34,13 @@ export class HeaderComponent {
 
   private updateLogo(url: string) {
     const logos: { [key: string]: string } = {
-      'qaluta-tours': 'assets/img/logoQalutaToursBlanco.png',
-      'qaluta-dictionary': 'assets/img/logoUrpiDictionaryBlanco.png',
-      'qaluta-store': 'assets/img/logoQalutaStoreBlanco.png',
-      'qaluta-360': 'assets/img/logoQaluta360Blanco.png'
+      'qaluta-tours': 'assets/img/logoQalutaToursBlanco.webp',
+      'qaluta-dictionary': 'assets/img/logoUrpiDictionaryBlanco.webp',
+      'qaluta-store': 'assets/img/logoQalutaStoreBlanco.webp',
+      'qaluta-360': 'assets/img/logoQaluta360Blanco.webp'
     };
 
     const match = Object.keys(logos).find(key => url.includes(key));
-    this.logoSrc = match ? logos[match] : 'assets/img/logoQaluta.png';
+    this.logoSrc = match ? logos[match] : 'assets/img/logoQaluta.webp';
   }
 }
