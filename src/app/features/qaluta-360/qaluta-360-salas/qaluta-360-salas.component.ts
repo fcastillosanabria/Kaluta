@@ -10,7 +10,7 @@ salas = [
     {
       title: 'Plaza Principal de Tupe',
       description: 'El corazón que une a la comunidad jaqaru; un espacio libre, acogedor y con una vista impresionante.',
-      image: 'assets/img/parqueTupe.jpg',
+      image: 'assets/img/parqueTupe.webp',
       route: 'https://gorgeous-flan-26777e.netlify.app/',
       badge: 'SALA 1',
       color: 'bg-warning'
@@ -18,7 +18,7 @@ salas = [
     {
       title: 'Tupinachaka "el Viejo Tupino"',
       description: 'Una vista poco explorada; el guardián que nos protege, "el Viejo Tupino".',
-      image: 'assets/img/tupinachaca.jpg',
+      image: 'assets/img/tupinachaca.webp',
       route: 'https://gorgeous-flan-26777e.netlify.app/',
       badge: 'SALA 2',
       color: 'bg-info'

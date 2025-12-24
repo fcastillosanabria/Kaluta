@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 images: string[] = [
-    'assets/img/ceoHablando.jpg',
-    'assets/img/proyectoQaluta.jpg'
+    'assets/img/ceoHablando.webp',
+    'assets/img/proyectoQaluta.webp'
   ];
 
   currentImageIndex = 0;

@@ -10,23 +10,23 @@ export class PartnersComponent {
   partners = [
     {
       name: 'Empresa 1',
-      logo: 'assets/img/dbu.jpg',
+      logo: 'assets/img/dbu.webp',
     },
     {
       name: 'Empresa 2',
-      logo: 'assets/img/logoUNDC.jpg',
+      logo: 'assets/img/logoUNDC.webp',
     },
     {
       name: 'Empresa 3',
-      logo: 'assets/img/logoUNDC.jpg',
+      logo: 'assets/img/logoUNDC.webp',
     },
     {
       name: 'Empresa 4',
-      logo: 'assets/img/logoUNDC.jpg',
+      logo: 'assets/img/logoUNDC.webp',
     },
     {
       name: 'Empresa 5',
-      logo: 'assets/img/logoUNDC.jpg',
+      logo: 'assets/img/logoUNDC.webp',
     },
   ];
 }

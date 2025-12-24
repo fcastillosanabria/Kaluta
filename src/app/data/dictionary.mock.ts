@@ -21,7 +21,7 @@ export const COMPANY_DATA: CompanyInfo = {
   title: 'Urpi Dictionary',
   description:
     'Urpi Dictionary es una iniciativa digital de base cultural y tecnológica orientada a la preservación, difusión y revitalización de lenguas originarias del Perú, mediante el uso de herramientas digitales accesibles, escalables y culturalmente responsables. El proyecto nace como una respuesta a la pérdida progresiva de lenguas ancestrales, fenómeno que pone en riesgo no solo la comunicación, sino también la cosmovisión, la memoria colectiva y la identidad cultural de comunidades originarias. En este contexto, Urpi Dictionary se plantea como una plataforma digital innovadora que articula tecnología, educación y cultura.',
-  image: 'assets/img/logoUrpiDictionaryBlanco.png',
+  image: 'assets/img/logoUrpiDictionaryBlanco.webp',
   info: {
     tipo: 'Organización sin fines de lucro',
     fundacion: 'Cañete, Lima – 2003',
@@ -60,7 +60,7 @@ export const DICTIONARY_WORDS: DictionaryWord[] = [
     titleJaqaru: 'Mishi',
     titleJaqaruAudio: 'mishi.mp3',
     description: 'El gato es un mamífero doméstico...',
-    image: 'assets/img/gato.png',
+    image: 'assets/img/gato.webp',
     info: {
       Tamaño: 'Pequeño',
       Peso: '4 – 6 kg',
