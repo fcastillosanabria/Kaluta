@@ -18,6 +18,9 @@ import jsPDF from 'jspdf';
 export class QalutaDictionaryContenidoComponent implements OnInit {
   @ViewChild('exportContent') exportContent!: ElementRef;
 
+  textSize: 'small' | 'normal' | 'large' = 'normal';
+
+
   // 🔹 ESTE ES EL ESTADO ÚNICO
   currentContent: CompanyInfo | DictionaryWord = COMPANY_DATA;
 

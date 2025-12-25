@@ -18,15 +18,11 @@ export class PartnersComponent {
     },
     {
       name: 'Empresa 3',
-      logo: 'assets/img/logoUNDC.webp',
+      logo: 'assets/img/logoMinCultura.webp',
     },
     {
       name: 'Empresa 4',
-      logo: 'assets/img/logoUNDC.webp',
-    },
-    {
-      name: 'Empresa 5',
-      logo: 'assets/img/logoUNDC.webp',
+      logo: 'assets/img/muniTupe.webp',
     },
   ];
 }

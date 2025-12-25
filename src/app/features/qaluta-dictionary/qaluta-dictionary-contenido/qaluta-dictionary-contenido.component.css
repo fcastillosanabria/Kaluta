@@ -60,3 +60,22 @@ aside button.btn:focus {
 .list-group-item:hover {
   background-color: #f8f9fa;
 }
+
+
+
+.small {
+  font-size: 0.85rem;
+}
+
+.normal {
+  font-size: 1rem;
+}
+
+.large {
+  font-size: 1.15rem;
+}
+
+/* Opcional: mejorar lectura */
+.large p {
+  line-height: 1.7;
+}

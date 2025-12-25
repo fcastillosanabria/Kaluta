@@ -86,7 +86,7 @@
           </div>
         </div>
 
-        <div #exportContent>
+        <div #exportContent [ngClass]="textSize">
           <!-- Detalles de la busqueda -->
           <div class="container my-4">
             <div class="row">
@@ -236,55 +236,29 @@
           <small class="text-muted fw-semibold d-block mb-2">Texto</small>
 
           <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="textSize" id="textSmall">
+            <input class="form-check-input" type="radio" name="textSize" id="textSmall" value="small"
+              [(ngModel)]="textSize">
             <label class="form-check-label" for="textSmall">
               Pequeño
             </label>
           </div>
 
           <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="textSize" id="textNormal" checked>
+            <input class="form-check-input" type="radio" name="textSize" id="textNormal" value="normal"
+              [(ngModel)]="textSize">
             <label class="form-check-label" for="textNormal">
-              Estandar
+              Estándar
             </label>
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="textSize" id="textLarge">
+            <input class="form-check-input" type="radio" name="textSize" id="textLarge" value="large"
+              [(ngModel)]="textSize">
             <label class="form-check-label" for="textLarge">
               Grande
             </label>
           </div>
         </div>
-
-        <hr>
-
-        <!-- COLOR -->
-        <div>
-          <small class="text-muted fw-semibold d-block mb-2">Color</small>
-
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="themeColor" id="colorAuto">
-            <label class="form-check-label" for="colorAuto">
-              Automatico
-            </label>
-          </div>
-
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="themeColor" id="colorLight" checked>
-            <label class="form-check-label" for="colorLight">
-              Blanco
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="themeColor" id="colorDark">
-            <label class="form-check-label" for="colorDark">
-              Oscuro
-            </label>
-          </div>
-        </div>
-
       </aside>
 
     </div>

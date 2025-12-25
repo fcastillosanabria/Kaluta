@@ -1,47 +1,90 @@
-<section class="tour-section py-5">
-  <div class="container-fluid">
+<div class="container-fluid mt-5 pt-4">
+  <div class="row">
 
-    <h3 class="fw-bold mb-4">Paquetes turísticos</h3>
+    <!-- FILTROS -->
+    <aside class="col-lg-3 col-md-4 d-none d-md-block filters-sticky">
+      <h5 class="fw-bold mb-3">Paquetes Turisticos</h5>
+      <h2 class="fw-bold">A precios de infarto</h2>
 
-    <div class="row flex-nowrap overflow-auto gx-4">
+      <hr>
 
-      <div
-        class="col-10 col-sm-6 col-md-4 col-lg-3"
-        *ngFor="let item of packages"
-      >
-        <div class="tour-card h-100">
+      <div class="mb-4">
+        <button class="btn w-100 d-flex justify-content-between align-items-center fw-bold px-0"
+          data-bs-toggle="collapse" data-bs-target="#genderCollapse" aria-expanded="true">
+          Género
+          <i class="bi bi-chevron-down"></i>
+        </button>
 
-          <!-- Imagen -->
-          <div class="image-wrapper">
-            <img [src]="item.image" [alt]="item.title">
-
-            <span class="badge-top" *ngIf="item.days">
-              {{ item.days }}
-            </span>
+        <div id="genderCollapse" class="collapse show mt-2">
+          <div class="form-check" *ngFor="let g of ['Hombre','Mujer','Niño','Unisex Niños']">
+            <input class="form-check-input" type="checkbox" [id]="g">
+            <label class="form-check-label" [for]="g">{{ g }}</label>
           </div>
-
-          <!-- Contenido -->
-          <div class="p-3 d-flex flex-column h-100">
-            <small class="text-uppercase text-muted fw-semibold">
-              {{ item.type }}
-            </small>
-
-            <h6 class="fw-bold mt-1">{{ item.title }}</h6>
-
-            <p class="text-muted mb-1">{{ item.subtitle }}</p>
-            <p class="text-muted small">{{ item.description }}</p>
-
-            <span class="tag mb-3">{{ item.tag }}</span>
-
-            <div class="mt-auto">
-              <p class="mb-0 small text-muted">Precio desde</p>
-              <h5 class="fw-bold">S/. {{ item.price }}</h5>
-            </div>
-          </div>
-
         </div>
       </div>
 
-    </div>
+
+
+      <div class="mb-4">
+        <button type="button" class="btn w-100 d-flex justify-content-between align-items-center fw-bold px-0"
+          data-bs-toggle="collapse" data-bs-target="#sizeCollapse" aria-expanded="true">
+          Talla
+          <i class="bi bi-chevron-down"></i>
+        </button>
+
+        <div id="sizeCollapse" class="collapse show mt-2">
+          <div class="form-check" *ngFor="let size of ['S','M','L','XL']">
+            <input class="form-check-input" type="checkbox" [id]="size">
+            <label class="form-check-label" [for]="size">
+              {{ size }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+    </aside>
+
+    <!-- PAQUETES TURISTICOS -->
+    <section class="col-lg-9 col-md-8">
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6" *ngFor="let item of packages">
+          <div class="tour-card h-100">
+
+            <!-- Imagen -->
+            <div class="image-wrapper">
+              <img [src]="item.image" [alt]="item.title">
+
+              <span class="badge-top" *ngIf="item.days">
+                {{ item.days }}
+              </span>
+            </div>
+
+            <!-- Contenido -->
+            <div class="p-3 d-flex flex-column h-100">
+              <small class="text-uppercase text-muted fw-semibold">
+                {{ item.type }}
+              </small>
+
+              <h6 class="fw-bold mt-1">{{ item.title }}</h6>
+
+              <p class="text-muted mb-1">{{ item.subtitle }}</p>
+              <p class="text-muted small">{{ item.description }}</p>
+
+              <span class="tag mb-3">{{ item.tag }}</span>
+
+              <div class="mt-auto">
+                <p class="mb-0 small text-muted">Precio desde</p>
+                <h5 class="fw-bold">S/. {{ item.price }}</h5>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </div>
-</section>
+</div>
