@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class QalutaToursPaquetesComponent {
   packages = [
-
     {
       type: 'VIAJE',
       title: 'Sabores de Qaluta',
@@ -16,6 +15,7 @@ export class QalutaToursPaquetesComponent {
       image: 'assets/img/tupinachaca.webp',
       price: 260,
       tag: 'Experiencia cultural',
+      days: 1
     },
     {
       type: 'VIAJE',
@@ -25,6 +25,7 @@ export class QalutaToursPaquetesComponent {
       image: 'assets/img/parqueTupe.webp',
       price: 420,
       tag: 'Recomendado',
+      days: 2
     },
     {
       type: 'PAQUETE',
@@ -34,8 +35,42 @@ export class QalutaToursPaquetesComponent {
       image: 'assets/img/iglesiaTupe.webp',
       price: 520,
       tag: 'Oferta Especial',
-      rating: 4.8,
-      days: '3 días / 2 noches',
-    },
+      days: 3
+    }
   ];
+
+  filteredPackages = [...this.packages];
+
+  selectedTypes: string[] = [];
+  selectedDays: number[] = [];
+
+  applyFilters() {
+    this.filteredPackages = this.packages.filter(pkg => {
+
+      const matchType =
+        this.selectedTypes.length === 0 ||
+        this.selectedTypes.includes(pkg.type);
+
+      const matchDays =
+        this.selectedDays.length === 0 ||
+        this.selectedDays.includes(pkg.days);
+
+      return matchType && matchDays;
+    });
+  }
+
+  toggleType(type: string) {
+    this.toggleSelection(this.selectedTypes, type);
+    this.applyFilters();
+  }
+
+  toggleDays(days: number) {
+    this.toggleSelection(this.selectedDays, days);
+    this.applyFilters();
+  }
+
+  private toggleSelection(array: any[], value: any) {
+    const index = array.indexOf(value);
+    index === -1 ? array.push(value) : array.splice(index, 1);
+  }
 }
