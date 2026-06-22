@@ -45,3 +45,28 @@
   text-align: left;
   max-width: 420px;
 }
+
+
+@media (max-width: 768px) {
+
+  .content-wrapper {
+    width: 100%;
+  }
+
+  .story-block {
+    min-height: 100vh;   /* 🔥 cada bloque = una pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateY(50px);
+
+    padding: 40px 20px;
+  }
+
+  .story-block img {
+    max-width: 80%;
+  }
+}

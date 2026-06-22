@@ -1,29 +1,93 @@
-<nav
-  id="mainNav"
-  class="navbar navbar-expand-lg py-3 px-4 fixed-top transition-nav d-flex align-items-center"
-  [class.bg-white]="isScrolled"
-  [class.bg-transparent]="!isScrolled"
-  [class.shadow-sm]="isScrolled"
->
-  <!-- LADO IZQUIERDO (INVISIBLE, MISMO TAMAÑO QUE EL BOTÓN) -->
-  <div class="nav-side invisible">
-    <button class="btn btn-dark text-uppercase px-4">
-      Reservar
-    </button>
+<!-- Franja invisible para reaparición con hover (solo activa cuando está oculto) -->
+<div *ngIf="isHidden && !isHovered" class="hover-trigger" (mouseenter)="onMouseEnter()">
+</div>
+
+<nav id="mainNav"
+  class="navbar navbar-expand-lg px-4 fixed-top transition-nav d-none d-lg-flex flex-column align-items-stretch"
+  [class.bg-white]="isScrolled || isMerged" [class.shadow-sm]="isScrolled || isMerged" [class.nav-hidden]="!isVisible"
+  (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+
+  <!-- Tu fila superior exactamente igual -->
+  <div class="d-flex align-items-center w-100 py-3">
+    <div class="nav-side invisible">
+      <button class="btn btn-dark text-uppercase px-4">Reservar</button>
+    </div>
+
+    <img [src]="logoSrc" height="55" alt="Qaluta Logo" class="mx-auto">
+
+    <div class="nav-side">
+      <a href="https://api.whatsapp.com/send?phone=51934179705&text=Hola,%20deseo%20realizar%20una%20reserva."
+        target="_blank" class="text-decoration-none">
+        <button class="btn btn-reservar text-uppercase px-4">
+          Reservar
+        </button>
+      </a>
+    </div>
   </div>
 
-  <!-- LOGO CENTRADO REAL -->
-  <img
-    [src]="logoSrc"
-    height="55"
-    alt="Qaluta Logo"
-    class="mx-auto"
-  >
+  <!-- Fila secundaria que aparece al fusionarse -->
+  <div class="secondary-inline" [class.secondary-visible]="isMerged">
+    <div class="d-flex justify-content-center gap-5 py-2 fw-semibold text-uppercase" style="font-size: 0.9rem;">
+      <a routerLink="/qaluta" routerLinkActive="active" class="qaluta-link">Qaluta</a>
+      <span class="text-muted" style="opacity: 0.3;">|</span>
+      <a routerLink="/qaluta-tours" routerLinkActive="active" class="qaluta-link">Qaluta Tours</a>
+      <a routerLink="/qaluta-dictionary" routerLinkActive="active" class="qaluta-link">Urpi Dictionary</a>
+      <a routerLink="/qaluta-store" routerLinkActive="active" class="qaluta-link">Qaluta Store</a>
+      <a routerLink="/qaluta-360" routerLinkActive="active" class="qaluta-link">Qaluta 360°</a>
+    </div>
+  </div>
 
-  <!-- LADO DERECHO (VISIBLE) -->
-  <div class="nav-side">
-    <button class="btn btn-dark text-uppercase px-4">
-      Reservar
+</nav>
+
+
+<!-- Header para moviles -->
+<nav class="navbar fixed-top d-flex d-lg-none px-3 py-2" [class.bg-white]="isScrolled" [class.shadow-sm]="isScrolled">
+  <div class="container-fluid p-0">
+
+    <img [src]="logoSrc" alt="Qaluta Logo" height="40">
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
     </button>
+
   </div>
 </nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menú</h5>
+
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+
+    <a routerLink="/qaluta" class="d-block py-2 text-decoration-none">
+      Qaluta
+    </a>
+
+    <a routerLink="/qaluta-tours" class="d-block py-2 text-decoration-none">
+      Qaluta Tours
+    </a>
+
+    <a routerLink="/qaluta-dictionary" class="d-block py-2 text-decoration-none">
+      Urpi Dictionary
+    </a>
+
+    <a routerLink="/qaluta-store" class="d-block py-2 text-decoration-none">
+      Qaluta Store
+    </a>
+
+    <a routerLink="/qaluta-360" class="d-block py-2 text-decoration-none">
+      Qaluta 360°
+    </a>
+
+    <hr>
+
+    <a href="https://api.whatsapp.com/send?phone=51934179705&text=Hola,%20deseo%20realizar%20una%20reserva."
+      target="_blank" class="btn btn-reservar w-100">
+      Reservar
+    </a>
+
+  </div>
+</div>

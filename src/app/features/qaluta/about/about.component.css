@@ -1,6 +1,7 @@
 .sticky-left {
   position: sticky;
-  top: 100px; /* distancia desde el top al hacer scroll */
+  top: 100px;
+  /* distancia desde el top al hacer scroll */
 }
 
 
@@ -8,7 +9,6 @@
   max-height: 400px;
   object-fit: cover;
 }
-
 
 
 @media (max-width: 768px) {
@@ -25,8 +25,10 @@
 
 /* IMAGEN PROFESIONAL UNIFICADA */
 .fade-image {
-  height: 320px; /* 👈 ESTA ES LA MEDIDA PERFECTA */
-  object-fit: cover; /* CLAVE: agranda pequeñas, recorta grandes */
+  height: 320px;
+  /* 👈 ESTA ES LA MEDIDA PERFECTA */
+  object-fit: cover;
+  /* CLAVE: agranda pequeñas, recorta grandes */
   transition: opacity 0.6s ease-in-out;
   opacity: 0;
 }
