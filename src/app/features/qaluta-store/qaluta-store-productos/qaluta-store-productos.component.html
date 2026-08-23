@@ -8,7 +8,7 @@
 
       <hr>
 
-      <div class="mb-4">
+      <!-- <div class="mb-4">
         <button class="btn w-100 d-flex justify-content-between align-items-center fw-bold px-0"
           data-bs-toggle="collapse" data-bs-target="#genderCollapse" aria-expanded="true">
           Género
@@ -16,13 +16,20 @@
         </button>
 
         <div id="genderCollapse" class="collapse show mt-2">
-          <div class="form-check" *ngFor="let g of ['Hombre','Mujer','Niño','Unisex Niños']">
-            <input class="form-check-input" type="checkbox" [id]="g">
-            <label class="form-check-label" [for]="g">{{ g }}</label>
-          </div>
-        </div>
-      </div>
 
+          <div class="form-check" *ngFor="let g of ['Hombre','Mujer','Niño','Unisex Niños']">
+
+            <input class="form-check-input" type="checkbox" [id]="'gender-' + g"
+              [checked]="selectedGenders.includes(g.toLowerCase())" (change)="toggleGender(g)">
+
+            <label class="form-check-label" [for]="'gender-' + g">
+              {{ g }}
+            </label>
+
+          </div>
+
+        </div>
+      </div> -->
 
 
       <div class="mb-4">
@@ -33,42 +40,64 @@
         </button>
 
         <div id="sizeCollapse" class="collapse show mt-2">
+
           <div class="form-check" *ngFor="let size of ['S','M','L','XL']">
-            <input class="form-check-input" type="checkbox" [id]="size">
-            <label class="form-check-label" [for]="size">
+
+            <input class="form-check-input" type="checkbox" [id]="'size-' + size"
+              [checked]="selectedSizes.includes(size)" (change)="toggleSize(size)">
+
+            <label class="form-check-label" [for]="'size-' + size">
               {{ size }}
             </label>
           </div>
         </div>
       </div>
 
-
     </aside>
 
     <!-- PRODUCTOS -->
     <section class="col-lg-9 col-md-8">
-      <div class="row g-4">
+      <div class="row g-4" *ngIf="filteredProducts.length > 0; else noProductsFound">
 
-        <div class="col-lg-4 col-md-6" *ngFor="let product of products">
+        <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts">
           <div class="product-card h-100">
 
-            <div class="image-wrapper">
-              <img [src]="product.image" [alt]="product.name">
+            <div class="image-wrapper" [class.product-agotado]="product.stock === 'agotado'">
+              <img [src]="product.image" [alt]="product.name" [class.imagen-agotada]="product.stock === 'agotado'">
+
               <i class="bi bi-heart wishlist"></i>
+
+              <div *ngIf="product.stock === 'agotado'" class="agotado-label">
+                AGOTADO
+              </div>
             </div>
 
-            <div class="mt-3">
-              <span class="badge text-danger fw-semibold">{{ product.badge }}</span>
+            <div class="product-info mt-3">
+
+              <!-- Espacio fijo para mantener alineadas las tarjetas -->
+              <div class="product-badge">
+                <span *ngIf="product.badge" class="badge text-danger fw-semibold">
+                  {{ product.badge }}
+                </span>
+              </div>
+
               <h6 class="fw-bold mt-2">{{ product.name }}</h6>
+
               <p class="text-muted mb-1">{{ product.category }}</p>
-              <p class="text-muted mb-1">{{ product.colors }} Colores</p>
-              <p class="fw-bold">S/ {{ product.price }}</p>
+
+              <p class="fw-bold mb-1">
+                Tallas: {{ product.tallas.join(', ') }}
+              </p>
+
+              <p class="fw-bold mb-0">
+                S/ {{ product.price }}
+              </p>
 
               <button class="btn text-light w-100 mt-3 px-4 py-2 text-uppercase fw-semibold cta-btn"
-                style="background-color: #C46C15;" (click)="comprarPorWhatsapp(product.name)">
-                Comprar
+                [style.background-color]="product.stock === 'agotado' ? '#999' : '#C46C15'"
+                [disabled]="product.stock === 'agotado'" (click)="comprarPorWhatsapp(product.name)">
+                {{ product.stock === 'agotado' ? 'Agotado' : 'Comprar' }}
               </button>
-
 
             </div>
 
@@ -76,6 +105,14 @@
         </div>
 
       </div>
+
+      <ng-template #noProductsFound>
+        <div class="no-products-found" role="status" aria-live="polite">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <h3>No encontramos productos con los filtros seleccionados.</h3>
+          <p>Prueba seleccionando otra talla.</p>
+        </div>
+      </ng-template>
     </section>
 
   </div>
